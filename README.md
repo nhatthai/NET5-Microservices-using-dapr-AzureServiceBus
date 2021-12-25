@@ -38,13 +38,14 @@ Example: Microservices using DAPR
     ```
     minikube service --url producer
     ```
-
+    ```
     |-----------|----------|-------------|------------------------|
     | NAMESPACE |   NAME   | TARGET PORT |          URL           |
     |-----------|----------|-------------|------------------------|
     | default   | producer |             | http://127.0.0.1:56210 |
     |-----------|----------|-------------|------------------------|
     http://127.0.0.1:56210
+    ```
 
 + Send a message from Producer to Consumer
     ```
@@ -56,11 +57,11 @@ Example: Microservices using DAPR
     }
     ```
 
-+ Publish message
-    ![Publisher](./Images/Dapr-Publish-Azure.png)
++ Component
+    ![AzureServiceBus](./Images/dapr-component.png)
 
 + Consumer message
-    ![Consumer](./Images/Dapr-Consumer-Azure.png)
+    ![Consumer](./Images/dapr-consumer-minikube.png)
 
 + Overview Azure
     ![Overview](./Images/Dapr-Overview-Azure.png)
