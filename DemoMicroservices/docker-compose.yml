@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  producer.api:
+    container_name: producer.api
+    build:
+      context: .
+      dockerfile: Producer/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+    ports:
+      - "5011:80"
+
+  consumer.api:
+    container_name: consumer.api
+    build:
+      context: .
+      dockerfile: Consumer/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:80
+    ports:
+      - "5000:80"

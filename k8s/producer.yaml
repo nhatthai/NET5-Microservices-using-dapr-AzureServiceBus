@@ -1,0 +1,47 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: producer
+  labels:
+    app: producer
+spec:
+  selector:
+    app: producer
+  ports:
+  - protocol: TCP
+    port: 80
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: producer
+  labels:
+    app: producer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: producer
+  template:
+    metadata:
+      labels:
+        app: producer
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "orderprocessing"
+        dapr.io/app-port: "80"
+    spec:
+      containers:
+      - name: producer
+        image: nhatthai/dotnet5-producer.api
+        imagePullPolicy: Always
+        env:
+        - name: PATH_BASE
+          value: /producer
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Development
+        - name: ASPNETCORE_URLS
+          value: http://0.0.0.0:80
+        ports:
+        - containerPort: 80
