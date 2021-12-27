@@ -29,7 +29,7 @@ spec:
         app: consumer
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "checkout"
+        dapr.io/app-id: "processor"
         dapr.io/app-port: "80"
     spec:
       containers:

@@ -29,7 +29,7 @@ spec:
         app: producer
       annotations:
         dapr.io/enabled: "true"
-        dapr.io/app-id: "orderprocessing"
+        dapr.io/app-id: "order"
         dapr.io/app-port: "80"
     spec:
       containers:

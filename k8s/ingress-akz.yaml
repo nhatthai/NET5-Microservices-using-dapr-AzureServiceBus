@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app: dapringress
+    component: frontend
+  name: dapr-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /producer(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: producer
+            port:
+              number: 80
+      - path: /consumer(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: consumer
+            port:
+              number: 80
