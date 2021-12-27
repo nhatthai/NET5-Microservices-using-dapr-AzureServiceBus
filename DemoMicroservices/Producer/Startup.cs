@@ -29,7 +29,7 @@ namespace Producer
                 .CreateLogger();
 
             services.AddDaprClient();
-            services.AddControllers();
+            services.AddControllers().AddDapr();
 
             services.AddSwaggerGen(c =>
             {

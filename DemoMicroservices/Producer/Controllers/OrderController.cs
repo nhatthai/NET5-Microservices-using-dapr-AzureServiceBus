@@ -3,7 +3,6 @@ using Messages.Commands;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Producer.Controllers
@@ -25,10 +24,10 @@ namespace Producer.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
             _logger.LogInformation("Get Order API");
-            return new List<string>();
+            return "Get Order API";
         }
 
         [HttpPost]
