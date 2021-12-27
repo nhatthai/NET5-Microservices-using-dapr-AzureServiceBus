@@ -7,4 +7,4 @@ spec:
   version: v1
   metadata:
   - name: connectionString
-    value: Endpoint=sb://demodapr.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[AccessKey]
+    value: Endpoint=sb://[SericeBusName].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[AccessKey]
